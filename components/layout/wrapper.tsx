@@ -4,7 +4,6 @@ import { Header } from "./header";
 import { Box, Flex, useMantineTheme } from "@mantine/core";
 
 import { useThemeColor } from "@/hooks";
-import { DashboardMain } from "@/dashboard/dashboard-main";
 
 export const Wrapper = ({
   children,
@@ -28,7 +27,7 @@ export const Wrapper = ({
         sx={{ flex: 1, overflow: "auto" }}
       >
         <Header text={text} />
-        <DashboardMain />
+        {children}
       </Box>
     </Flex>
   );

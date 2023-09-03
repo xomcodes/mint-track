@@ -50,25 +50,40 @@ export function RecentTable() {
   const getRenderedOption = useThemeColor();
   const rows = elements.map((element) => (
     <tr key={element.name}>
-      <td>{element.name}</td>
-      <td>{element.category}</td>
-      <td>{element.amount}</td>
-      <td>{element.time}</td>
-      <td>{element.date}</td>
+      <td className="!border-none !font-semibold ">{element.name}</td>
+      <td className="!border-none !font-semibold ">{element.category}</td>
+      <td className="!border-none !font-semibold ">{element.amount}</td>
+      <td className="!border-none !font-semibold ">{element.time}</td>
+      <td className="!border-none !font-semibold ">{element.date}</td>
     </tr>
   ));
 
   return (
-    <Table>
+    <Table
+      fontSize={theme.fontSizes.md}
+      sx={{
+        fontWeight: theme.other.semibold,
+        color: getRenderedOption({
+          light: theme.colors.blue[9],
+          dark: "white",
+        }),
+      }}
+      horizontalSpacing={theme.spacing.md}
+      verticalSpacing={theme.spacing.md}
+    >
       <thead
         style={{
-          background: getRenderedOption({
-            light: theme.colors.white[0],
-            dark: theme.colors.violet[0],
-          }),
           border: "none",
-          //
-          color: theme.colors.blue[9],
+          ...getRenderedOption({
+            light: {
+              background: theme.colors.white[0],
+              color: theme.colors.blue[9],
+            },
+            dark: {
+              background: theme.colors.violet[0],
+              color: "white",
+            },
+          }),
         }}
       >
         <tr>

@@ -1,3 +1,4 @@
+import { useThemeColor } from "@/hooks";
 import {
   ButtonStylesParams,
   ColorScheme,
@@ -22,6 +23,9 @@ function Provider({
     key: "minttrack",
     prepend: true,
   });
+
+  const getRenderedOption = useThemeColor();
+
   return (
     <ColorSchemeProvider
       colorScheme="light"
@@ -30,7 +34,7 @@ function Provider({
       <MantineProvider
         withNormalizeCSS
         withGlobalStyles
-        emotionCache={cache}
+        // emotionCache={cache}
         theme={{
           primaryColor: "lemon",
           primaryShade: 5,
@@ -43,7 +47,7 @@ function Provider({
               "#E6E4E4",
               "#808080",
               "#D9D7D7",
-              "#C5C4C4",
+              "#A4A6A7",
               "#9A9999",
               "#F8F8F8",
               "#5B5A5A",
@@ -149,6 +153,7 @@ function Provider({
                       color: theme.colors.blue[9],
                       borderRadius: theme.radius.xs,
                       background: theme.colors.lemon[5],
+                      "&hover": theme.colors.lemon[6],
                     },
                     label: {
                       fontWeight: theme.other.fontWeight.semibold,
@@ -165,6 +170,9 @@ function Provider({
                       color: theme.colors.blue[9],
                       borderRadius: theme.radius.xs,
                       background: theme.colors.lemon[5],
+                      "&:hover": {
+                        background: theme.colors.lemon[7],
+                      },
                     },
                     label: {
                       fontWeight: theme.other.fontWeight.semibold,
@@ -180,6 +188,9 @@ function Provider({
                       color: theme.colors.blue[9],
                       borderRadius: theme.radius.xs,
                       background: theme.colors.lemon[5],
+                      "&:hover": {
+                        background: theme.colors.lemon[7],
+                      },
                     },
                     label: {
                       fontWeight: theme.other.fontWeight.semibold,
@@ -191,10 +202,19 @@ function Provider({
                     root: {
                       height: rem(49),
                       fontSize: theme.fontSizes.sm,
-                      color: theme.colors.blue[9],
+                      color:
+                        theme.colorScheme === "light"
+                          ? theme.colors.blue[9]
+                          : "white",
                       borderRadius: theme.radius.xs,
-                      border: `${rem(1)} solid ${theme.colors.blue[9]}`,
+                      border:
+                        theme.colorScheme === "light"
+                          ? `${rem(1)} solid ${theme.colors.blue[9]}`
+                          : `${rem(1)} solid white`,
                       backgroundColor: "transparent",
+                      "&:hover": {
+                        background: "transparent",
+                      },
                     },
 
                     label: {
@@ -346,6 +366,54 @@ function Provider({
                       fontWeight: theme.other.fontWeight.normal,
                     },
                   },
+                  label: {
+                    fontSize: theme.fontSizes.sm,
+                    // paddingBottom: theme.spacing.sm,
+                    color:
+                      theme.colorScheme === "light"
+                        ? theme.colors.blue[9]
+                        : "white",
+                  },
+                };
+              },
+            },
+
+            DateInput: {
+              styles(theme, params, context) {
+                return {
+                  root: {
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: theme.spacing.sm,
+                  },
+
+                  input: {
+                    height: "fit-content",
+                    lineHeight: "normal",
+                    border:
+                      theme.colorScheme === "light"
+                        ? `${rem(1)} solid ${theme.colors.brand[1]}`
+                        : "none",
+                    background:
+                      theme.colorScheme === "light"
+                        ? theme.colors.white[0]
+                        : theme.colors.violet[5],
+                    padding: theme.spacing.md,
+                    borderRadius: theme.radius.xs,
+                    color:
+                      theme.colorScheme === "light"
+                        ? theme.colors.blue[5]
+                        : "white",
+                    fontWeight: theme.other.fontWeight.semibold,
+                    "&::placeholder": {
+                      color:
+                        theme.colorScheme === "light"
+                          ? theme.colors.blue[5]
+                          : "white",
+                      fontSize: theme.fontSizes.sm,
+                      fontWeight: theme.other.fontWeight.normal,
+                    },
+                  },
                 };
               },
             },
@@ -386,6 +454,24 @@ function Provider({
                     },
                   };
                 },
+
+                sm_medium(theme, param, context) {
+                  return {
+                    root: {
+                      fontSize: theme.fontSizes.sm,
+                      fontWeight: theme.other.fontWeight.medium,
+                    },
+                  };
+                },
+
+                md_medium(theme, param, context) {
+                  return {
+                    root: {
+                      fontSize: theme.fontSizes.md,
+                      fontWeight: theme.other.fontWeight.medium,
+                    },
+                  };
+                },
               },
             },
           },
@@ -410,6 +496,7 @@ function Provider({
             xl: rem(24),
             "2xl": rem(32),
             "3xl": rem(40),
+            "4xl": rem(48),
           },
 
           radius: {
