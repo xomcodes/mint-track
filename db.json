@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Chisom",
+      "last_name": "Okeoma",
+      "email": "chisom123@gmail.com",
+      "department": "frontend"
+    },
+    {
+      "id": 2,
+      "first_name": "Prosper",
+      "last_name": "Jaja",
+      "email": "pros123@gmail.com",
+      "department": "bestie"
+    },
+    {
+      "id": 3,
+      "first_name": "Tayo",
+      "last_name": "Olatunji",
+      "email": "trouble123@gmail.com",
+      "department": "I dont know"
+    },
+    {
+      "id": 4,
+      "first_name": "Dami",
+      "last_name": "Alalade",
+      "email": "frosh@gmail.com",
+      "department": "backend"
+    }
+  ]
+}
