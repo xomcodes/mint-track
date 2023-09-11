@@ -18,11 +18,6 @@ export default function Home() {
   const [user, setUser] = useState();
   const [logedUser, setLogedUser] = useState({});
 
-  // function handleSubmit(e: any) {
-  //   e.preventDefault();
-  //   console.log(logedUser);
-  // }
-
   const { back } = useRouter();
   return (
     <section className=" flex bg-white dark:bg-horizon-dark-primary01 h-screen">
